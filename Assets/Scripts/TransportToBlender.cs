@@ -36,7 +36,8 @@ public class TransportToBlender : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 15f , _layerMask))
         {
-            Instantiate(hit.transform.gameObject);
+            Vector3 pos = new Vector3(hit.transform.position.x, hit.transform.position.y + 0.5f, hit.transform.position.z);
+            Instantiate(hit.transform.gameObject, pos, Quaternion.identity);
             _fruitColor = hit.transform.GetComponent<fruitColor>();
             _totalRed += _fruitColor.fruitColors.r;
             _totalGreen += _fruitColor.fruitColors.g;
